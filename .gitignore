@@ -1,0 +1,16 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Strapi
+.tmp/
+.build/
+.cache/
+.env
+
+# React
+rpecojourney-frontend/node_modules/
+rpecojourney-frontend/build/
+
+# VS Code settings
+.vscode/
