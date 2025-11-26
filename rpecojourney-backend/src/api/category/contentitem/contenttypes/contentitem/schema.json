@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "content_items",
+  "info": {
+    "singularName": "content-item",
+    "pluralName": "content-items",
+    "displayName": "Content Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "attachments": {
+      "type": "media",
+      "multiple": true,
+      "required": false
+    }
+  }
+}

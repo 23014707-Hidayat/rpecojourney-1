@@ -14,3 +14,15 @@ rpecojourney-frontend/build/
 
 # VS Code settings
 .vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# If using yarn or pnpm
+yarn.lock
+pnpm-lock.yaml
