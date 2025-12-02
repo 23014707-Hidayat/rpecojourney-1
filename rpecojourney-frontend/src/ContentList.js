@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost:1337/api";
+const BASE_URL = "http://localhost:1337";
+const API_URL = `${BASE_URL}/api`;
 const ITEMS_PER_PAGE = 6;
 
 const ContentList = () => {
@@ -19,8 +20,7 @@ const ContentList = () => {
 
   const filtered = contentItems.filter((item) => {
     const title = item.title?.toLowerCase() || "";
-    const body =
-      item.text?.[0]?.children?.[0]?.text?.toLowerCase() || "";
+    const body = item.text?.[0]?.children?.[0]?.text?.toLowerCase() || "";
 
     const matchesSearch =
       !search ||
@@ -84,6 +84,15 @@ const ContentList = () => {
               <div className="category-badge">
                 {item.category?.name || "Uncategorized"}
               </div>
+
+              {item.image && (
+                <img
+                  src={`${BASE_URL}${item.image.url}`}
+                  alt={item.image.alternativeText || item.title}
+                  className="content-card-image"
+                />
+              )}
+
               <h2>{item.title}</h2>
               <p>{item.text?.[0]?.children?.[0]?.text}</p>
             </Link>

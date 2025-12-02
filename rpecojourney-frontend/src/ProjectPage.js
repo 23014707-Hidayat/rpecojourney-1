@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-const API_URL = "http://localhost:1337/api";
+const BASE_URL = "http://localhost:1337";
+const API_URL = `${BASE_URL}/api`;
 
 const ProjectPage = () => {
   const { documentId } = useParams();
@@ -35,6 +36,14 @@ const ProjectPage = () => {
       <div className="project-page-card">
         <div className="category-badge">{item.category?.name}</div>
         <h1 className="project-page-title">{item.title}</h1>
+
+        {item.image && (
+          <img
+            src={`${BASE_URL}${item.image.url}`}
+            alt={item.image.alternativeText || item.title}
+            className="project-page-image"
+          />
+        )}
 
         <div className="project-page-body">
           {item.text?.map((block, i) => (
